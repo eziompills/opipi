@@ -1,26 +1,26 @@
 <?php
-require_once 'inc/header.php';
+require_once 'inc/config.php';
+require_once 'inc/flash.php';
 
 $token = $_GET['token'] ?? '';
 if (!$token) {
-    echo '<div class="alert alert-danger">Token manquant.</div>';
-    require_once 'inc/footer.php';
+    set_flash('Token manquant.', 'danger');
+    header('Location: /login.php');
     exit;
 }
 
 $stmt = $pdo->prepare(
     "UPDATE users
        SET verify_token = NULL,
-           verified_at  = NOW()
+           verified     = 1
      WHERE verify_token = ?"
 );
 $stmt->execute([$token]);
 
 if ($stmt->rowCount()) {
-    echo '<div class="alert alert-success">Votre compte est désormais vérifié !</div>';
+    set_flash('Votre compte est désormais vérifié !', 'success');
 } else {
-    echo '<div class="alert alert-warning">Lien invalide ou déjà utilisé.</div>';
+    set_flash('Lien invalide ou déjà utilisé.', 'warning');
 }
-
-require_once 'inc/footer.php';
-?>
+header('Location: /login.php');
+exit;
