@@ -10,6 +10,9 @@ function set_flash(string $message, string $type = 'success'): void {
 }
 
 function display_flash(): void {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     if (!empty($_SESSION['flash'])) {
         [$message, $type] = $_SESSION['flash'];
         unset($_SESSION['flash']);
