@@ -1,4 +1,7 @@
-<?php require_once __DIR__.'/config.php'; ?>
+<?php
+require_once __DIR__.'/config.php';
+require_once __DIR__.'/flash.php';
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -52,3 +55,4 @@
   </div>
 </nav>
 <div class="container">
+<?php display_flash(); ?>
