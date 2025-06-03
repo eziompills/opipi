@@ -1,0 +1,22 @@
+
+/* Custom Lux overrides for ôplani */
+body{font-family:'Inter',sans-serif;background-color:#f9fbfc;}
+.navbar-brand{font-weight:600;}
+.card{border:none;border-radius:1rem;box-shadow:0 4px 14px rgba(0,0,0,0.08);}
+.card:hover{transform:translateY(-4px);transition:.3s all;}
+.btn-primary{background:#0d6efd;border:none;border-radius:.75rem;font-weight:500;}
+.btn-primary:hover{background:#0b5ed7;}
+.section-title{font-size:1.75rem;font-weight:600;margin-bottom:1rem;}
+.rating{color:#ffc107;}
+.hero{background:linear-gradient(135deg,#18A0BE 0%,#14C7A7 100%);color:#fff;padding:60px 0;border-radius:1rem;margin-bottom:2rem;}
+.hero h1{font-size:2.5rem;font-weight:700;}
+.hero p{font-size:1.25rem;}
+#map{border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+
+
+/* Dark mode */
+body.dark{background-color:#121212;color:#e5e5e5;}
+body.dark .card{background:#1e1e1e;color:#e5e5e5;box-shadow:none;}
+body.dark .navbar,{background:#1e1e1e !important;}
+body.dark .hero{background:linear-gradient(130deg,#333,#111);}
+body.dark a{color:#90caf9;}

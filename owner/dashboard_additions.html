@@ -1,0 +1,99 @@
+
+<!-- TOP SERVICES & STAFF -->
+<div class="row">
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Top services (30 jours)</h5>
+        <canvas id="chartTopServices" height="90"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Top staff (30 jours)</h5>
+        <canvas id="chartTopStaff" height="90"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEATMAP -->
+<div class="row">
+  <div class="col-12">
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Pic d'affluence (heatmap)</h5>
+        <canvas id="chartHeatmap" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Export bouton -->
+<div class="text-end mb-5">
+  <a href="export_bookings.php" class="btn btn-outline-secondary">Exporter CSV (30 jours)</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.3.0/dist/chartjs-chart-matrix.min.js"></script>
+<script>
+Promise.all([
+  fetch('api/services.php').then(r=>r.json()),
+  fetch('api/staff.php').then(r=>r.json()),
+  fetch('api/heatmap.php').then(r=>r.json())
+]).then(([services, staff, heatmap])=>{
+  // Top services
+  new Chart(document.getElementById('chartTopServices').getContext('2d'),{
+    type:'bar',
+    data:{
+      labels:services.map(s=>s.name),
+      datasets:[{label:'Réservations',data:services.map(s=>s.total)}]
+    },
+    options:{responsive:true,maintainAspectRatio:false}
+  });
+
+  // Top staff
+  new Chart(document.getElementById('chartTopStaff').getContext('2d'),{
+    type:'horizontalBar',
+    data:{
+      labels:staff.map(s=>s.name),
+      datasets:[{label:'Réservations',data:staff.map(s=>s.total)}]
+    },
+    options:{responsive:true,maintainAspectRatio:false}
+  });
+
+  // Heatmap
+  // Convert heatmap data into matrix cells
+  const cells = heatmap.map(({d,h,v})=>({
+    x:h, y:d,
+    v,
+    r:0 // radius not used
+  }));
+  new Chart(document.getElementById('chartHeatmap').getContext('2d'),{
+    type:'matrix',
+    data:{
+      datasets:[{
+        label:'Réservations',
+        data:cells,
+        width: ctx=>ctx.chart.chartArea.width/24,
+        height: ctx=>ctx.chart.chartArea.height/7,
+        backgroundColor: ctx=>{
+          const value = ctx.dataset.data[ctx.dataIndex].v;
+          const alpha = Math.min(1,value/5+0.1);
+          return `rgba(0,123,255,${alpha})`;
+        }
+      }]
+    },
+    options:{
+      scales:{
+        x:{type:'linear',position:'top',ticks:{callback:v=>v+':00'}},
+        y:{type:'linear',ticks:{callback:v=>['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'][v]}}
+      },
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{legend:{display:false}}
+    }
+  });
+}).catch(console.error);
+</script>
