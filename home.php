@@ -1,3 +1,6 @@
+<?php
+$page_title = 'Accueil';
+$page_description = "Réservez en ligne chez les meilleurs salons de beauté près de chez vous";
 <?php $page_title = 'Accueil';
 require_once 'inc/header.php'; ?>
 <header style="position:relative;" class="hero text-center position-relative overflow-hidden">

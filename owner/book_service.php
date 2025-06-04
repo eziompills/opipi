@@ -152,21 +152,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="hidden" name="service_id" value="<?= $service['id'] ?>">
                 <?php if (!$user): ?>
                     <div class="col-12">
-                        <label class="form-label">Votre nom</label>
-                        <input type="text" name="guest_name" class="form-control" required value="<?= htmlspecialchars($guest_name ?? '') ?>">
+                        <label class="form-label" for="ownerGuestName">Votre nom</label>
+                        <input type="text" id="ownerGuestName" name="guest_name" class="form-control" required value="<?= htmlspecialchars($guest_name ?? '') ?>">
                     </div>
                     <div class="col-12">
-                        <label class="form-label">Votre e-mail</label>
-                        <input type="email" name="guest_email" class="form-control" required value="<?= htmlspecialchars($guest_email ?? '') ?>">
+                        <label class="form-label" for="ownerGuestEmail">Votre e-mail</label>
+                        <input type="email" id="ownerGuestEmail" name="guest_email" class="form-control" required value="<?= htmlspecialchars($guest_email ?? '') ?>">
                     </div>
                 <?php endif; ?>
                 <div class="col-md-6">
-                    <label class="form-label">Date</label>
-                    <input type="date" id="date" name="date" class="form-control" required min="<?= date('Y-m-d') ?>">
+                    <label class="form-label" for="ownerDate">Date</label>
+                    <input type="date" id="ownerDate" name="date" class="form-control" required min="<?= date('Y-m-d') ?>">
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Créneau disponible</label>
-                    <select id="slots" name="time" class="form-select" required>
+                    <label class="form-label" for="ownerSlots">Créneau disponible</label>
+                    <select id="ownerSlots" name="time" class="form-select" required>
                         <option value="">Sélectionnez une date</option>
                     </select>
                 </div>
@@ -180,10 +180,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
-document.getElementById("date").addEventListener("change", function() {
+document.getElementById("ownerDate").addEventListener("change", function() {
     const dateVal = this.value;
     const serviceId = <?= $service_id ?>;
-    const select = document.getElementById("slots");
+    const select = document.getElementById("ownerSlots");
     select.innerHTML = '<option>Chargement...</option>';
     fetch(`book_service.php?slots=1&service_id=${serviceId}&date=${dateVal}`)
         .then(res => res.json())

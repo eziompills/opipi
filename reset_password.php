@@ -2,6 +2,7 @@
 require_once 'inc/config.php';
 require_once 'inc/flash.php';
 $page_title = 'Nouveau mot de passe';
+$page_description = "Définissez un nouveau mot de passe pour votre compte";
 require_once 'inc/header.php';
 
 $token = $_GET['token'] ?? '';
@@ -40,6 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars($error) ?></div><?php endif; ?>
     <div class="card p-4 shadow-sm">
       <form method="post">
+        <div class="mb-3">
+          <label for="newPassword">Nouveau mot de passe</label>
+          <input type="password" id="newPassword" name="password" class="form-control" required autofocus>
+        </div>
         <div class="mb-3"><label>Nouveau mot de passe</label>
           <input type="password" name="password" class="form-control" required></div>
         <button class="btn btn-success w-100">Réinitialiser</button>

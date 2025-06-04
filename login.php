@@ -3,7 +3,8 @@ require_once 'inc/config.php';
 require_once 'inc/flash.php';
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-  $email=$_POST['email']??''; $pass=$_POST['password']??'';
+  $email=$_POST['email']??'';
+  $pass=$_POST['password']??'';
   $stmt=$pdo->prepare('SELECT * FROM users WHERE email=?'); $stmt->execute([$email]);
   $user=$stmt->fetch();
   if($user && password_verify($pass,$user['password_hash'])){
@@ -15,6 +16,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 }
 
 $page_title = 'Connexion';
+$page_description = "Accédez à votre compte client et gérez vos réservations";
+
 require_once 'inc/header.php';
 ?>
 <div class="row justify-content-center py-5">
@@ -23,6 +26,14 @@ require_once 'inc/header.php';
     <?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars($error) ?></div><?php endif; ?>
     <div class="card p-4 shadow-sm">
       <form method="post">
+        <div class="mb-3">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" value="<?= htmlspecialchars($email ?? '') ?>" class="form-control" required autofocus>
+        </div>
+        <div class="mb-3">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" name="password" class="form-control" required>
+        </div>
         <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
         <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>
         <button class="btn btn-primary w-100">Se connecter</button>

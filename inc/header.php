@@ -13,6 +13,9 @@ function nav_active(string $path): string {
 <meta charset="utf-8">
 <?php $page_title = $page_title ?? 'ôplani'; ?>
 <title><?= htmlspecialchars($page_title) ?></title>
+<?php if(!empty($page_description)): ?>
+<meta name="description" content="<?= htmlspecialchars($page_description) ?>">
+<?php endif; ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
 <link href="/assets/css/style.css" rel="stylesheet">
@@ -24,6 +27,12 @@ function nav_active(string $path): string {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-bs5@1.13.8/css/dataTables.bootstrap5.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+<script>
+if(localStorage.getItem('theme')==='dark' ||
+   (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))){
+  document.documentElement.classList.add('dark');
+}
+</script>
 </head>
 <body>
 <a href="#content" class="visually-hidden-focusable">Aller au contenu</a>
@@ -58,5 +67,6 @@ function nav_active(string $path): string {
     </div>
   </div>
 </nav>
+<main id="content" class="container">
 <div id="content" class="container">
 <?php display_flash(); ?>

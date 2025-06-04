@@ -20,3 +20,5 @@ body.dark .card{background:#1e1e1e;color:#e5e5e5;box-shadow:none;}
 body.dark .navbar,{background:#1e1e1e !important;}
 body.dark .hero{background:linear-gradient(130deg,#333,#111);}
 body.dark a{color:#90caf9;}
+
+#backToTop{box-shadow:0 4px 12px rgba(0,0,0,0.2);}

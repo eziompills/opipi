@@ -1,8 +1,5 @@
 <?php
 // book_service.php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require_once 'inc/config.php'; // config initializes $pdo and session, and user()
 
@@ -138,21 +135,21 @@ require_once 'inc/header.php'; ?>
   <form method="post" class="mb-3">
     <?php if (!$user): ?>
       <div class="mb-3">
-        <label class="form-label">Votre nom</label>
-        <input type="text" name="guest_name" class="form-control" required value="<?= htmlspecialchars($guest_name ?? '') ?>">
+        <label class="form-label" for="guestName">Votre nom</label>
+        <input type="text" id="guestName" name="guest_name" class="form-control" required value="<?= htmlspecialchars($guest_name ?? '') ?>">
       </div>
       <div class="mb-3">
-        <label class="form-label">Votre e-mail</label>
-        <input type="email" name="guest_email" class="form-control" required value="<?= htmlspecialchars($guest_email ?? '') ?>">
+        <label class="form-label" for="guestEmail">Votre e-mail</label>
+        <input type="email" id="guestEmail" name="guest_email" class="form-control" required value="<?= htmlspecialchars($guest_email ?? '') ?>">
       </div>
     <?php endif; ?>
 
     <div class="mb-3">
-      <label class="form-label">Date</label>
+      <label class="form-label" for="dateInput">Date</label>
       <input type="date" id="dateInput" name="date" class="form-control" required min="<?= date('Y-m-d') ?>">
     </div>
     <div class="mb-3">
-      <label class="form-label">Créneau disponible</label>
+      <label class="form-label" for="timeSelect">Créneau disponible</label>
       <select id="timeSelect" name="time" class="form-select" required>
         <option value="">-- Choisissez une date d'abord --</option>
       </select>

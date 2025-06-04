@@ -14,10 +14,20 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 ?>
 <h1>Ajouter un salon</h1>
 <form method="post" class="row g-3">
-  <div class="col-md-6"><label class="form-label">Nom</label><input name="name" class="form-control" required></div>
-  <div class="col-md-6"><label class="form-label">Ville</label><input name="city" class="form-control" required></div>
-  <div class="col-12"><label class="form-label">Adresse</label><input name="address" class="form-control"></div>
-  <div class="col-md-6"><label class="form-label">Catégorie</label>
+  <div class="col-md-6">
+    <label class="form-label" for="addName">Nom</label>
+    <input id="addName" name="name" class="form-control" required>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="addCity">Ville</label>
+    <input id="addCity" name="city" class="form-control" required>
+  </div>
+  <div class="col-12">
+    <label class="form-label" for="addAddress">Adresse</label>
+    <input id="addAddress" name="address" class="form-control">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="addCategory">Catégorie</label>
     <select name="category" class="form-select">
       <option value="barbershop">Barbier / Coiffeur</option>
       <option value="bio">Bio / Naturel</option>
@@ -26,9 +36,18 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
       <option value="spa">Spa / Bien‑être</option>
     </select>
   </div>
-  <div class="col-md-3"><label class="form-label">Latitude</label><input name="lat" class="form-control"></div>
-  <div class="col-md-3"><label class="form-label">Longitude</label><input name="lng" class="form-control"></div>
-  <div class="col-12"><label class="form-label">Description</label><textarea name="description" class="form-control"></textarea></div>
+  <div class="col-md-3">
+    <label class="form-label" for="addLat">Latitude</label>
+    <input id="addLat" name="lat" class="form-control">
+  </div>
+  <div class="col-md-3">
+    <label class="form-label" for="addLng">Longitude</label>
+    <input id="addLng" name="lng" class="form-control">
+  </div>
+  <div class="col-12">
+    <label class="form-label" for="addDescription">Description</label>
+    <textarea id="addDescription" name="description" class="form-control"></textarea>
+  </div>
   <div class="col-12"><button class="btn btn-success">Créer</button></div>
 </form>
 </div><?php require_once '../inc/footer.php'; ?>
