@@ -6,6 +6,7 @@ require_role(['owner']);
 $salonIdStmt = $pdo->prepare('SELECT id FROM salons WHERE owner_id = ? LIMIT 1');
 $salonIdStmt->execute([user()['id']]);
 $salon_id = $salonIdStmt->fetchColumn();
+require_once '../inc/header.php';
 
 if (!$salon_id) {
     echo '<p class="alert alert-warning">Vous n\'avez pas encore créé de salon.</p>';

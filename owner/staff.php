@@ -2,8 +2,9 @@
 /**
  * Gestion simple du staff
  */
-require_once '../inc/header.php';
+require_once '../inc/config.php';
 require_role(['owner']);
+require_once '../inc/header.php';
 
 $salonIdStmt = $pdo->prepare('SELECT id FROM salons WHERE owner_id = ? LIMIT 1');
 $salonIdStmt->execute([user()['id']]);

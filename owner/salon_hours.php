@@ -1,6 +1,7 @@
 <?php
-require_once '../inc/header.php';
+require_once '../inc/config.php';
 require_role(['owner']);
+require_once '../inc/header.php';
 $salon_id=(int)($_GET['salon_id']??0);
 $check=$pdo->prepare("SELECT * FROM salons WHERE id=? AND owner_id=?");
 $check->execute([$salon_id,user()['id']]);

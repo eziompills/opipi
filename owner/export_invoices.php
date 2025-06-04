@@ -1,5 +1,5 @@
 <?php
-require_once '../inc/header.php';
+require_once '../inc/config.php';
 require_role(['owner']);
 header('Content-Type:text/csv');
 header('Content-Disposition: attachment; filename="factures_'.date('Ymd').'.csv"');
