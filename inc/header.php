@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__.'/config.php';
 require_once __DIR__.'/flash.php';
-
 function nav_active(string $path): string {
     return strpos($_SERVER['REQUEST_URI'], $path) === 0 ? 'active' : '';
 }
