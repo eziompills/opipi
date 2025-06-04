@@ -1,5 +1,7 @@
 <?php
-require_once 'inc/header.php';
+require_once 'inc/config.php';
+require_once 'inc/flash.php';
+
 if($_SERVER['REQUEST_METHOD']==='POST'){
   $email=$_POST['email']??''; $pass=$_POST['password']??'';
   $stmt=$pdo->prepare('SELECT * FROM users WHERE email=?'); $stmt->execute([$email]);
@@ -11,6 +13,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     }
   } else $error='Identifiants incorrects';
 }
+
+require_once 'inc/header.php';
 ?>
 <h1>Connexion</h1>
 <?php if(isset($error)): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>

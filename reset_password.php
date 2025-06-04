@@ -1,4 +1,6 @@
 <?php
+require_once 'inc/config.php';
+require_once 'inc/flash.php';
 require_once 'inc/header.php';
 
 $token = $_GET['token'] ?? '';
@@ -30,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Mot de passe invalide';
     }
 }
+
+require_once 'inc/header.php';
 ?>
 <h1>Nouveau mot de passe</h1>
 <?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars($error) ?></div><?php endif; ?>

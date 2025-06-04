@@ -1,5 +1,8 @@
 <?php
+require_once 'inc/config.php';
+require_once 'inc/flash.php';
 require_once 'inc/header.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -20,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: /login.php');
     exit;
 }
+require_once 'inc/header.php';
 ?>
 <h1>Mot de passe oublié</h1>
 <form method="post">
