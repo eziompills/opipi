@@ -3,6 +3,7 @@
  * Page publique du salon : détail complet avec horaires, services, avis.
  * Corrige le lien de réservation pour passer service_id.
  */
+$page_title = 'Salon';
 require_once 'inc/header.php';
 
 $id = (int)($_GET['id'] ?? 0);

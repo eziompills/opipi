@@ -1,4 +1,5 @@
 <?php
+$page_title = 'Choisir un créneau';
 require_once 'inc/header.php';
 require_role(['customer']);
 

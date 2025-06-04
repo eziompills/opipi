@@ -125,14 +125,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Réserver <?= htmlspecialchars($service['name']) ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container py-5">
+<?php $page_title = 'Réserver : ' . $service['name'];
+require_once 'inc/header.php'; ?>
+<div class="py-4">
   <h1 class="mb-4">Réserver : <?= htmlspecialchars($service['name']) ?></h1>
   <p>Salon : <?= htmlspecialchars($service['salon_name']) ?> &middot; Durée : <?= (int)$service['duration'] ?> min</p>
 
@@ -200,6 +195,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
   });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>
+<?php require_once 'inc/footer.php'; ?>
