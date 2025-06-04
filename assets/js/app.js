@@ -18,11 +18,14 @@ if(toggle){
       ?'<i class="bi-sun"></i>'
       :'<i class="bi-moon"></i>';
   };
-  if(localStorage.getItem('theme')==='dark' || (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))){
-      document.body.classList.add('dark');
+  const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if(localStorage.getItem('theme')==='dark' || (prefersDark && !localStorage.getItem('theme'))){
+    document.documentElement.classList.add('dark');
+    document.body.classList.add('dark');
   }
   applyIcon();
   toggle.addEventListener('click',()=>{
+    document.documentElement.classList.toggle('dark');
     document.body.classList.toggle('dark');
     localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light');
     applyIcon();

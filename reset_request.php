@@ -2,6 +2,7 @@
 require_once 'inc/config.php';
 require_once 'inc/flash.php';
 $page_title = 'Mot de passe oublié';
+$page_description = "Recevez un lien pour réinitialiser votre mot de passe";
 require_once 'inc/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="card p-4 shadow-sm">
       <form method="post">
         <div class="mb-3"><label>Email</label>
-          <input type="email" name="email" class="form-control" required></div>
+          <input type="email" name="email" class="form-control" required autofocus></div>
         <button class="btn btn-primary w-100">Envoyer</button>
       </form>
     </div>

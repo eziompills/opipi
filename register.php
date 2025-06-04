@@ -1,5 +1,6 @@
 <?php
 $page_title = 'Inscription';
+$page_description = "Créez votre compte pour réserver vos soins beauté en ligne";
 require_once 'inc/header.php';
 if($_SERVER['REQUEST_METHOD']==='POST'){
   $name=$_POST['name']??''; $email=$_POST['email']??''; $pass=$_POST['password']??'';
@@ -22,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars($error) ?></div><?php endif; ?>
     <div class="card p-4 shadow-sm">
       <form method="post">
-        <div class="mb-3"><label>Nom</label><input name="name" class="form-control" required></div>
+        <div class="mb-3"><label>Nom</label><input name="name" class="form-control" required autofocus></div>
         <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
         <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>
         <button class="btn btn-success w-100">Créer mon compte</button>
