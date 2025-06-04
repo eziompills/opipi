@@ -3,7 +3,6 @@ require_once 'inc/config.php';
 require_once 'inc/flash.php';
 require_once 'inc/header.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $stmt = $pdo->prepare('SELECT id FROM users WHERE email = ?');

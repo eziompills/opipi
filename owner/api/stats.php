@@ -8,7 +8,7 @@
  *    "revenue":  { "2025-05-03": 120.5, ... }
  *  }
  */
-require_once '../../inc/header.php';
+require_once '../../inc/config.php';
 require_role(['owner']);
 header('Content-Type: application/json');
 

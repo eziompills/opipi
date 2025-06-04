@@ -1,6 +1,7 @@
 <?php
-require_once '../inc/header.php';
+require_once '../inc/config.php';
 require_role(['owner']);
+require_once '../inc/header.php';
 $salon_id=(int)($_GET['salon_id']??0);
 $staff_id=(int)($_GET['staff_id']??0);
 $staff=$pdo->prepare("SELECT * FROM staff s JOIN users u ON u.id=s.user_id WHERE s.salon_id=? AND s.user_id=?");

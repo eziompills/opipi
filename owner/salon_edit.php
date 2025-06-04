@@ -3,8 +3,9 @@
  * Edition des informations du salon (nom, adresse, ville, etc.)
  * Cette version n'utilise pas set_flash().
  */
-require_once '../inc/header.php';
+require_once '../inc/config.php';
 require_role(['owner']);
+require_once '../inc/header.php';
 
 // Affichage d'un message de succès si ?updated=1
 if (isset($_GET['updated'])) {

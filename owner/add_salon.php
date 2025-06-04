@@ -1,8 +1,9 @@
 <?php
+require_once '../inc/config.php';
+require_role(['owner']);
 require_once '../inc/header.php';
 include 'sidebar.php';
 echo '<div class="content-wrap">';
-require_role(['owner']);
 if($_SERVER['REQUEST_METHOD']==='POST'){
   $name=$_POST['name'];$city=$_POST['city'];$address=$_POST['address'];$desc=$_POST['description'];$cat=$_POST['category'];$lat=$_POST['lat'];$lng=$_POST['lng'];
   $slug=strtolower(preg_replace('/[^a-z0-9]+/','-',$name));
