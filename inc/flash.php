@@ -21,5 +21,6 @@ function display_flash(): void {
             . htmlspecialchars($message)
             . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
             . '</div>';
+        echo '<div class="alert alert-' . htmlspecialchars($type) . '">' . htmlspecialchars($message) . '</div>';
     }
 }

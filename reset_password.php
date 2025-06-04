@@ -1,6 +1,7 @@
 <?php
 require_once 'inc/config.php';
 require_once 'inc/flash.php';
+require_once 'inc/header.php';
 
 $token = $_GET['token'] ?? '';
 if (!$token) {

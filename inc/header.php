@@ -6,6 +6,13 @@ function nav_active(string $path): string {
     return strpos($_SERVER['REQUEST_URI'], $path) === 0 ? 'active' : '';
 }
 ?>
+<?php
+require_once __DIR__.'/config.php';
+require_once __DIR__.'/flash.php';
+function nav_active(string $path): string {
+    return strpos($_SERVER['REQUEST_URI'], $path) === 0 ? 'active' : '';
+}
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -26,10 +33,18 @@ function nav_active(string $path): string {
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 sticky-top">
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 sticky-top">
   <div class="container">
     <a class="navbar-brand" href="/home.php">ôplani</a>
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link <?= nav_active('/pro.php') ?>" href="/pro.php">Pour les pros</a></li>
+<li class="nav-item"><a class="nav-link <?= nav_active('/blog') ?>" href="/blog/index.php">Blog</a></li>
       <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link <?= nav_active('/pro.php') ?>" href="/pro.php">Pour les pros</a></li>
 <li class="nav-item"><a class="nav-link <?= nav_active('/blog') ?>" href="/blog/index.php">Blog</a></li>
@@ -52,10 +67,21 @@ function nav_active(string $path): string {
       
 <li class="nav-item">
   <button id="themeToggle" class="btn btn-link nav-link" aria-label="Changer le thème"><i class="bi-moon"></i></button>
+            <li class="nav-item"><a class="nav-link <?= nav_active('/my_bookings.php') ?>" href="/my_bookings.php">Mes réservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout.php">Déconnexion</a></li>
+        <?php else: ?>
+          <li class="nav-item"><a class="nav-link <?= nav_active('/login.php') ?>" href="/login.php">Connexion</a></li>
+          <li class="nav-item"><a class="nav-link <?= nav_active('/register.php') ?>" href="/register.php">Inscription</a></li>
+        <?php endif; ?>
+      
+<li class="nav-item">
+  <button id="themeToggle" class="btn btn-link nav-link" aria-label="Changer le thème"><i class="bi-moon"></i></button>
 </li>
 </ul>
     </div>
   </div>
 </nav>
+<div class="container">
+<?php display_flash(); ?>
 <div class="container">
 <?php display_flash(); ?>
