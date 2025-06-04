@@ -98,3 +98,8 @@ CREATE TABLE salon_hours (
 ALTER TABLE users ADD verified TINYINT DEFAULT 0, ADD verify_token CHAR(32) NULL;
 
 -- ALTER TABLE bookings ADD COLUMN payment_status ENUM('unpaid','paid') DEFAULT 'unpaid', ADD COLUMN stripe_session VARCHAR(255);
+
+-- password reset
+ALTER TABLE users
+  ADD reset_token CHAR(32) NULL,
+  ADD reset_expires_at DATETIME NULL;
