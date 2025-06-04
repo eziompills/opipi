@@ -1,8 +1,5 @@
 <?php
 // book_service.php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require_once 'inc/config.php'; // config initializes $pdo and session, and user()
 
@@ -125,14 +122,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Réserver <?= htmlspecialchars($service['name']) ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container py-5">
+<?php $page_title = 'Réserver : ' . $service['name'];
+require_once 'inc/header.php'; ?>
+<div class="py-4">
   <h1 class="mb-4">Réserver : <?= htmlspecialchars($service['name']) ?></h1>
   <p>Salon : <?= htmlspecialchars($service['salon_name']) ?> &middot; Durée : <?= (int)$service['duration'] ?> min</p>
 
@@ -143,21 +135,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <form method="post" class="mb-3">
     <?php if (!$user): ?>
       <div class="mb-3">
-        <label class="form-label">Votre nom</label>
-        <input type="text" name="guest_name" class="form-control" required value="<?= htmlspecialchars($guest_name ?? '') ?>">
+        <label class="form-label" for="guestName">Votre nom</label>
+        <input type="text" id="guestName" name="guest_name" class="form-control" required value="<?= htmlspecialchars($guest_name ?? '') ?>">
       </div>
       <div class="mb-3">
-        <label class="form-label">Votre e-mail</label>
-        <input type="email" name="guest_email" class="form-control" required value="<?= htmlspecialchars($guest_email ?? '') ?>">
+        <label class="form-label" for="guestEmail">Votre e-mail</label>
+        <input type="email" id="guestEmail" name="guest_email" class="form-control" required value="<?= htmlspecialchars($guest_email ?? '') ?>">
       </div>
     <?php endif; ?>
 
     <div class="mb-3">
-      <label class="form-label">Date</label>
+      <label class="form-label" for="dateInput">Date</label>
       <input type="date" id="dateInput" name="date" class="form-control" required min="<?= date('Y-m-d') ?>">
     </div>
     <div class="mb-3">
-      <label class="form-label">Créneau disponible</label>
+      <label class="form-label" for="timeSelect">Créneau disponible</label>
       <select id="timeSelect" name="time" class="form-select" required>
         <option value="">-- Choisissez une date d'abord --</option>
       </select>
@@ -200,6 +192,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
   });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>
+<?php require_once 'inc/footer.php'; ?>

@@ -3,6 +3,7 @@
  * Page de recherche améliorée avec recommandations et images dans popups.
  * AJAX handling before any HTML output.
  */
+$page_title = 'Recherche';
 require_once 'inc/header.php';
 
 if (isset($_GET['ajax'])) {

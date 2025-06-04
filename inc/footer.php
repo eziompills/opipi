@@ -1,4 +1,4 @@
-</div><!-- /.container -->
+</main><!-- /#content -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.js"></script>
 <script src="/assets/js/app.js"></script>
@@ -11,6 +11,8 @@
 <script>$(function(){$('.table').DataTable({paging:false,info:false});});</script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<a href="#content" id="backToTop" class="btn btn-primary rounded-circle position-fixed" style="bottom:1rem;right:1rem;display:none;z-index:1040" aria-label="Retour en haut"><i class="bi-arrow-up"></i></a>
 
 </body>
 </html>

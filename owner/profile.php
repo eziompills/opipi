@@ -20,17 +20,30 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 ?>
 <h1>Profil salon</h1>
 <form method="post" class="row g-3">
-  <div class="col-md-6"><label class="form-label">Nom</label><input name="name" value="<?= htmlspecialchars($salon['name']) ?>" class="form-control" required></div>
-  <div class="col-md-6"><label class="form-label">Ville</label><input name="city" value="<?= htmlspecialchars($salon['city']) ?>" class="form-control" required></div>
-  <div class="col-12"><label class="form-label">Adresse</label><input name="address" value="<?= htmlspecialchars($salon['address']) ?>" class="form-control"></div>
-  <div class="col-md-6"><label class="form-label">Catégorie</label>
+  <div class="col-md-6">
+    <label class="form-label" for="profileName">Nom</label>
+    <input id="profileName" name="name" value="<?= htmlspecialchars($salon['name']) ?>" class="form-control" required>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="profileCity">Ville</label>
+    <input id="profileCity" name="city" value="<?= htmlspecialchars($salon['city']) ?>" class="form-control" required>
+  </div>
+  <div class="col-12">
+    <label class="form-label" for="profileAddress">Adresse</label>
+    <input id="profileAddress" name="address" value="<?= htmlspecialchars($salon['address']) ?>" class="form-control">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="profileCategory">Catégorie</label>
     <select name="category" class="form-select">
       <?php foreach(['barbershop'=>'Barbier','bio'=>'Bio','kids'=>'Kids','mixte'=>'Mixte','spa'=>'Spa'] as $k=>$v): ?>
         <option value="<?= $k ?>" <?= ($salon['category']==$k)?'selected':'' ?>><?= $v ?></option>
       <?php endforeach; ?>
     </select>
   </div>
-  <div class="col-12"><label class="form-label">Description</label><textarea name="description" class="form-control"><?= htmlspecialchars($salon['description']) ?></textarea></div>
+  <div class="col-12">
+    <label class="form-label" for="profileDescription">Description</label>
+    <textarea id="profileDescription" name="description" class="form-control"><?= htmlspecialchars($salon['description']) ?></textarea>
+  </div>
   <div class="col-12"><button class="btn btn-success">Enregistrer</button></div>
 </form>
 </div><?php require_once '../inc/footer.php'; ?>

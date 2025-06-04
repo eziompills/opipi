@@ -1,4 +1,5 @@
-<?php require_once 'inc/header.php'; ?>
+<?php $page_title = 'Pour les pros';
+require_once 'inc/header.php'; ?>
 <header class="hero text-center">
   <h1 data-aos="fade-down">Vous êtes un salon&nbsp;?</h1>
   <p data-aos="fade-up" data-aos-delay="150">Rejoignez plus de 2 000 professionnels qui remplissent leur agenda avec ôplani.</p>

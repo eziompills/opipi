@@ -67,24 +67,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <form method="post" class="card shadow-sm border-0 p-4" style="max-width:600px">
   <div class="mb-3">
-    <label class="form-label">Nom du salon *</label>
-    <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($salon['name'] ?? '') ?>" required>
+    <label class="form-label" for="salonName">Nom du salon *</label>
+    <input type="text" id="salonName" name="name" class="form-control" value="<?= htmlspecialchars($salon['name'] ?? '') ?>" required>
   </div>
   <div class="mb-3">
-    <label class="form-label">Ville</label>
-    <input type="text" name="city" class="form-control" value="<?= htmlspecialchars($salon['city'] ?? '') ?>">
+    <label class="form-label" for="salonCity">Ville</label>
+    <input type="text" id="salonCity" name="city" class="form-control" value="<?= htmlspecialchars($salon['city'] ?? '') ?>">
   </div>
   <div class="mb-3">
-    <label class="form-label">Adresse</label>
-    <textarea name="address" class="form-control" rows="2"><?= htmlspecialchars($salon['address'] ?? '') ?></textarea>
+    <label class="form-label" for="salonAddress">Adresse</label>
+    <textarea id="salonAddress" name="address" class="form-control" rows="2"><?= htmlspecialchars($salon['address'] ?? '') ?></textarea>
   </div>
   <div class="mb-3">
-    <label class="form-label">Description</label>
-    <textarea name="description" class="form-control" rows="4"><?= htmlspecialchars($salon['description'] ?? '') ?></textarea>
+    <label class="form-label" for="salonDescription">Description</label>
+    <textarea id="salonDescription" name="description" class="form-control" rows="4"><?= htmlspecialchars($salon['description'] ?? '') ?></textarea>
   </div>
   <div class="mb-3">
-    <label class="form-label">Catégorie</label>
-    <select name="category" class="form-select">
+    <label class="form-label" for="salonCategory">Catégorie</label>
+    <select id="salonCategory" name="category" class="form-select">
       <?php 
       $opts = ['barbershop'=>'Barbershop','bio'=>'Bio','kids'=>'Kids','mixte'=>'Mixte','spa'=>'Spa'];
       foreach($opts as $val=>$label): ?>
@@ -93,12 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </select>
   </div>
   <div class="mb-3">
-    <label class="form-label">Couleur principale (hex)</label>
-    <input type="color" name="primary_color" class="form-control form-control-color" value="<?= htmlspecialchars($salon['primary_color'] ?? '#000000') ?>" title="Choisissez une couleur">
+    <label class="form-label" for="primaryColor">Couleur principale (hex)</label>
+    <input type="color" id="primaryColor" name="primary_color" class="form-control form-control-color" value="<?= htmlspecialchars($salon['primary_color'] ?? '#000000') ?>" title="Choisissez une couleur">
   </div>
   <div class="mb-3">
-    <label class="form-label">URL du logo</label>
-    <input type="url" name="logo_url" class="form-control" value="<?= htmlspecialchars($salon['logo_url'] ?? '') ?>">
+    <label class="form-label" for="logoUrl">URL du logo</label>
+    <input type="url" id="logoUrl" name="logo_url" class="form-control" value="<?= htmlspecialchars($salon['logo_url'] ?? '') ?>">
   </div>
   <button class="btn btn-primary">Enregistrer</button>
 </form>

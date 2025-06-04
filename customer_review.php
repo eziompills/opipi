@@ -41,7 +41,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 }
 ?>
-<?php require_once 'inc/header.php'; ?>
+<?php $page_title = 'Avis salon';
+require_once 'inc/header.php'; ?>
 <div class="container py-5">
   <h1 class="mb-4">Laisser un avis pour <?= htmlspecialchars($booking['salon_name']) ?></h1>
   <?php if(isset($error)): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>

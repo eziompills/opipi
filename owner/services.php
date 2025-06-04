@@ -54,12 +54,12 @@ if(isset($_GET['edit'])){
     <input type="hidden" name="service_id" value="<?= $editing['id'] ?>">
   <?php endif; ?>
   <div class="mb-3">
-    <label class="form-label">Nom du service</label>
-    <input type="text" name="name" class="form-control" required value="<?= htmlspecialchars($editing['name']??'') ?>">
+    <label class="form-label" for="serviceName">Nom du service</label>
+    <input type="text" id="serviceName" name="name" class="form-control" required value="<?= htmlspecialchars($editing['name']??'') ?>">
   </div>
   <div class="mb-3">
-    <label class="form-label">Prix (€)</label>
-    <input type="number" name="price" step="0.01" min="0" class="form-control" required value="<?= isset($editing['price_cents'])?number_format($editing['price_cents']/100,2,'.',''):'' ?>">
+    <label class="form-label" for="servicePrice">Prix (€)</label>
+    <input type="number" id="servicePrice" name="price" step="0.01" min="0" class="form-control" required value="<?= isset($editing['price_cents'])?number_format($editing['price_cents']/100,2,'.',''):'' ?>">
   </div>
   <button class="btn btn-primary"><?= $editing?'Mettre à jour':'Ajouter' ?></button>
   <?php if($editing): ?><a href="services.php" class="btn btn-link">Annuler</a><?php endif; ?>

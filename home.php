@@ -1,4 +1,7 @@
-<?php require_once 'inc/header.php'; ?>
+<?php
+$page_title = 'Accueil';
+$page_description = "Réservez en ligne chez les meilleurs salons de beauté près de chez vous";
+require_once 'inc/header.php'; ?>
 <header style="position:relative;" class="hero text-center position-relative overflow-hidden">
   <h1 data-aos="fade-down">ôplani – Prenez soin de vous</h1>
   <p data-aos="fade-up" data-aos-delay="150">Réservez chez les meilleurs professionnels beauté en quelques secondes.</p>

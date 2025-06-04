@@ -50,12 +50,12 @@ if(isset($_GET['edit'])){
     <input type="hidden" name="staff_id" value="<?= $editing['id'] ?>">
   <?php endif; ?>
   <div class="mb-3">
-    <label class="form-label">Nom</label>
-    <input type="text" name="name" class="form-control" required value="<?= htmlspecialchars($editing['name']??'') ?>">
+    <label class="form-label" for="staffName">Nom</label>
+    <input type="text" id="staffName" name="name" class="form-control" required value="<?= htmlspecialchars($editing['name']??'') ?>">
   </div>
   <div class="mb-3">
-    <label class="form-label">Email (optionnel)</label>
-    <input type="email" name="email" class="form-control" value="<?= htmlspecialchars($editing['email']??'') ?>">
+    <label class="form-label" for="staffEmail">Email (optionnel)</label>
+    <input type="email" id="staffEmail" name="email" class="form-control" value="<?= htmlspecialchars($editing['email']??'') ?>">
   </div>
   <button class="btn btn-primary"><?= $editing?'Mettre à jour':'Ajouter' ?></button>
   <?php if($editing): ?><a href="staff.php" class="btn btn-link">Annuler</a><?php endif; ?>
