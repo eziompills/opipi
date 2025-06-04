@@ -1,6 +1,7 @@
 <?php
 require_once 'inc/config.php';
 require_once 'inc/flash.php';
+$page_title = 'Mot de passe oublié';
 require_once 'inc/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,12 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: /login.php');
     exit;
 }
-require_once 'inc/header.php';
 ?>
-<h1>Mot de passe oublié</h1>
-<form method="post">
-  <div class="mb-3"><label>Email</label>
-    <input type="email" name="email" class="form-control" required></div>
-  <button class="btn btn-primary">Envoyer</button>
-</form>
+<div class="row justify-content-center py-5">
+  <div class="col-md-6">
+    <h1 class="mb-4 text-center">Mot de passe oublié</h1>
+    <div class="card p-4 shadow-sm">
+      <form method="post">
+        <div class="mb-3"><label>Email</label>
+          <input type="email" name="email" class="form-control" required></div>
+        <button class="btn btn-primary w-100">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</div>
 <?php require_once 'inc/footer.php'; ?>

@@ -1,4 +1,5 @@
-<?php require_once '../inc/header.php';
+$page_title = 'Blog';
+require_once '../inc/header.php';
 $posts=[['slug'=>'bienfaits-barbe','title'=>'5 astuces pour entretenir sa barbe','excerpt'=>'Un guide rapide pour rester au top.','date'=>'2025-05-20'],
         ['slug'=>'tendance-coupe-ete','title'=>'Tendances coupe été 2025','excerpt'=>'Les styles à adopter cette saison.','date'=>'2025-05-10']];
 ?>

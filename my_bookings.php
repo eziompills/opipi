@@ -1,4 +1,5 @@
 <?php
+$page_title = 'Mes réservations';
 require_once 'inc/header.php';
 require_once 'inc/auth.php';
 require_login();
