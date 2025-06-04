@@ -7,12 +7,18 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 const toggle=document.getElementById('themeToggle');
 if(toggle){
+  const applyIcon=()=>{
+    toggle.innerHTML=document.body.classList.contains('dark')
+      ?'<i class="bi-sun"></i>'
+      :'<i class="bi-moon"></i>';
+  };
   if(localStorage.getItem('theme')==='dark' || (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))){
       document.body.classList.add('dark');
   }
+  applyIcon();
   toggle.addEventListener('click',()=>{
     document.body.classList.toggle('dark');
     localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light');
-    toggle.innerHTML=document.body.classList.contains('dark')?'<i class="bi-sun"></i>':'<i class="bi-moon"></i>';
+    applyIcon();
   });
 }
