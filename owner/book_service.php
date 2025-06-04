@@ -1,6 +1,6 @@
 <?php
 // Inclure le header (charge Bootstrap, navbar, start session, user(), etc.)
-require_once 'inc/header.php';
+require_once '../inc/header.php';
 
 $service_id = (int)($_GET['service_id'] ?? ($_POST['service_id'] ?? 0));
 $user = user(); // récupère l'utilisateur connecté ou null
@@ -18,7 +18,7 @@ $service = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$service) {
     echo '<div class="container my-5"><div class="alert alert-warning">Service introuvable.</div></div>';
-    require_once 'inc/footer.php';
+    require_once '../inc/footer.php';
     exit;
 }
 
@@ -208,5 +208,5 @@ document.getElementById("date").addEventListener("change", function() {
 
 <?php
 // Inclure le footer (ferme body, html et charge JS)
-require_once 'inc/footer.php';
+require_once '../inc/footer.php';
 ?>

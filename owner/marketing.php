@@ -1,8 +1,9 @@
 <?php
+require_once '../inc/config.php';
+require_role(['owner']);
 require_once '../inc/header.php';
 include 'sidebar.php';
 echo '<div class="content-wrap">';
-require_role(['owner']);
 if($_SERVER['REQUEST_METHOD']==='POST'){
   $subject=$_POST['subject']; $message=$_POST['message'];
   $salon_ids=$_POST['salon_id'] ?? [];
