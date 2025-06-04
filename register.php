@@ -37,6 +37,9 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
           <label for="regPassword">Mot de passe</label>
           <input type="password" id="regPassword" name="password" class="form-control" required>
         </div>
+        <div class="mb-3"><label>Nom</label><input name="name" class="form-control" required></div>
+        <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+        <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>
         <button class="btn btn-success w-100">Créer mon compte</button>
       </form>
     </div>

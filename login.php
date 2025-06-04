@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
 $page_title = 'Connexion';
 $page_description = "Accédez à votre compte client et gérez vos réservations";
+
 require_once 'inc/header.php';
 ?>
 <div class="row justify-content-center py-5">
@@ -33,6 +34,8 @@ require_once 'inc/header.php';
           <label for="loginPassword">Mot de passe</label>
           <input type="password" id="loginPassword" name="password" class="form-control" required>
         </div>
+        <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+        <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>
         <button class="btn btn-primary w-100">Se connecter</button>
         <a href="reset_request.php" class="btn btn-link d-block mt-2">Mot de passe oublié</a>
       </form>

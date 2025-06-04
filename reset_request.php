@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <label for="resetEmail">Email</label>
           <input type="email" id="resetEmail" name="email" class="form-control" required autofocus value="<?= htmlspecialchars($email ?? '') ?>">
         </div>
+        <div class="mb-3"><label>Email</label>
+          <input type="email" name="email" class="form-control" required></div>
         <button class="btn btn-primary w-100">Envoyer</button>
       </form>
     </div>

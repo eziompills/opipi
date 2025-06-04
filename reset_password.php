@@ -45,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <label for="newPassword">Nouveau mot de passe</label>
           <input type="password" id="newPassword" name="password" class="form-control" required autofocus>
         </div>
+        <div class="mb-3"><label>Nouveau mot de passe</label>
+          <input type="password" name="password" class="form-control" required></div>
         <button class="btn btn-success w-100">Réinitialiser</button>
       </form>
     </div>

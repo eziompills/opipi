@@ -68,4 +68,5 @@ if(localStorage.getItem('theme')==='dark' ||
   </div>
 </nav>
 <main id="content" class="container">
+<div id="content" class="container">
 <?php display_flash(); ?>
